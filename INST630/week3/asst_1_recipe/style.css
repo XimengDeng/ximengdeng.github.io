@@ -1,0 +1,250 @@
+/* Style Reference: https://cari.institute/aesthetics/diner-kitsch */
+/* Tatsuro Yamashita - "For You" Album Art (1982) */
+/* Design by Eizin Suzuki */
+/* http://eizin.net/ */
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Major+Mono+Display&display=swap');
+
+:root {
+    --color-blue: #1E3FAE;
+    --color-yellow: #E8C24A;
+    --color-red: #D9392A;
+    --color-green: #1F5C34;
+    --color-cream: #F3E9BE;
+    --color-black: #111111;
+    --color-white: #FFFFFF;
+    --color-gray: #C7C7C7;
+
+    --font-title: "Major Mono Display", monospace;
+    --font-body: "Madimi One", sans-serif;
+
+    --space-xs: 0.5rem;
+    --space-sm: 0.9rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.25rem;
+    --space-xl: 3.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-white);
+    line-height: 1.5;
+    padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+h1, h2 {
+    font-family: var(--font-title);
+    margin: 0;
+}
+
+/* Grid */
+.recipe-container {
+    width: 100%;
+    max-width: 80rem;
+    background: var(--color-blue);
+    padding: var(--space-lg);
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        "header       header"
+        "recipe-meta  recipe-meta"
+        "recipe-description recipe-description"
+        "ingredients  instructions"
+        "recipe-footer recipe-footer";
+    gap: var(--space-lg);
+    margin: 0 auto;
+}
+
+.recipe-header       { grid-area: header; }
+.recipe-meta          { grid-area: recipe-meta; }
+.recipe-description   { grid-area: recipe-description; }
+.ingredients-section   { grid-area: ingredients; }
+.instructions-section  { grid-area: instructions; }
+.recipe-footer         { grid-area: recipe-footer; }
+
+@media (max-width: 48rem) {
+    .recipe-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "recipe-meta"
+            "recipe-description"
+            "ingredients"
+            "instructions"
+            "recipe-footer";
+        padding: var(--space-md);
+        gap: var(--space-md);
+    }
+}
+
+/* Header */
+.recipe-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    text-align: center;
+}
+
+.recipe-title {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
+    text-wrap: balance;
+}
+
+.recipe-image {
+    width: clamp(7rem, 18vw, 10rem);
+    height: auto;
+}
+
+/* flex box */
+.recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.meta-item {
+    flex: 1 0 auto;
+    line-height: 1.35;
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.meta-item:nth-child(1) { background: var(--color-yellow); color: var(--color-black); }
+.meta-item:nth-child(2) { background: var(--color-red);    color: var(--color-white); }
+.meta-item:nth-child(3) { background: var(--color-green);  color: var(--color-white); }
+.meta-item:nth-child(4) { background: var(--color-cream);  color: var(--color-black); margin-left: var(--space-lg); }
+.meta-item:nth-child(5) { background: var(--color-black);  color: var(--color-white); }
+
+.meta-item strong {
+    display: block;
+    font-weight: normal;
+}
+
+@media (max-width: 48rem) {
+    .meta-item:nth-child(4) {
+        margin-left: 0;
+    }
+}
+
+
+/* Description */
+
+.recipe-description p {
+    margin: 0;
+    color: var(--color-black);
+    text-align: center;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-white);
+    border-inline: var(--space-lg) solid var(--color-gray);
+    padding: var(--space-md) var(--space-sm);
+}
+
+/* Ingredients */
+.ingredients-section h2,
+.instructions-section h2 {
+    display: inline-block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 5px solid var(--color-yellow);
+    padding-bottom: 0.35rem;
+    margin-bottom: var(--space-md);
+}
+
+.ingredients-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.ingredients-list li:nth-child(even) {
+    color: var(--color-yellow);
+}
+
+/* Instructions */
+.instructions-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.instruction-step {
+    counter-increment: step;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.instruction-step::before {
+    content: counter(step);
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+  
+}
+
+.instruction-step:nth-child(5n+1)::before { background: var(--color-yellow); color: var(--color-black); }
+.instruction-step:nth-child(5n+2)::before { background: var(--color-red);    color: var(--color-white); }
+.instruction-step:nth-child(5n+3)::before { background: var(--color-green); color: var(--color-white); }
+.instruction-step:nth-child(5n+4)::before { background: var(--color-cream); color: var(--color-black); }
+.instruction-step:nth-child(5n+5)::before { background: var(--color-black); color: var(--color-white); }
+
+.instruction-step strong {
+    flex: 0 0 auto;
+    width: 8rem;
+    color: var(--color-yellow);
+    font-weight: normal;
+    padding-top: 0.2rem;
+}
+
+@media (max-width: 48rem) {
+    .instruction-step strong {
+        width: 6rem;
+    }
+}
+
+/* Footer */
+.recipe-footer {
+    border-top: 5px solid var(--color-yellow);
+    padding-top: var(--space-sm);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+
+.recipe-footer p {
+    margin: 0.2rem 0;
+}
+
+.recipe-footer p:nth-of-type(3) {
+    margin-top: 1.25rem;
+}
+
+.recipe-footer a {
+    color: var(--color-yellow);
+}

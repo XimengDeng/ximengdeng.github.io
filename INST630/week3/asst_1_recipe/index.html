@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Card Assignment - Make This Beautiful!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="recipe-container">
+        <!-- Recipe Header Section -->
+        <header class="recipe-header">
+            <h1 class="recipe-title">Classic Chocolate Chip Cookies</h1>
+            <svg class="recipe-image" viewBox="0 0 400 400" role="img" aria-label="A Golden Brown Classic Chocolate Chip Cookie" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <path id="cookie" d="M90 150 Q110 95 180 80 Q250 68 300 105 Q345 140 345 210 Q342 280 290 320 Q240 350 180 340 Q115 330 80 275 Q55 215 90 150 Z"/>
+                    <clipPath id="clip"><use href="#cookie"/></clipPath>
+                </defs>
+
+                <!-- decorative lines and dots -->
+                <g stroke="#111111" stroke-width="3" stroke-linecap="round">
+                    <line x1="40" y1="232" x2="78" y2="194"/>
+                    <line x1="342" y1="98" x2="385" y2="55"/>
+                    <line x1="305" y1="372" x2="365" y2="328"/>
+                </g>
+                <circle cx="58" cy="160" r="10" fill="#D9392A" stroke="#111111" stroke-width="3"/>
+                <circle cx="318" cy="68" r="10" fill="#1E6FE6" stroke="#111111" stroke-width="3"/>
+                <circle cx="368" cy="240" r="10" fill="#E8C24A" stroke="#111111" stroke-width="3"/>
+
+                <!-- cookie body: shadow base + top -->
+                <use href="#cookie" fill="#D27A2C"/>
+                <g clip-path="url(#clip)">
+    <use href="#cookie" fill="#F2A24C" transform="translate(-4 -7)"/>
+</g>
+                <use href="#cookie" fill="none" stroke="#111111" stroke-width="5" stroke-linejoin="round"/>
+
+                <!-- cracks -->
+                <g fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="92,248 105,238 100,225 112,212"/>
+                    <polyline points="112,318 125,305 122,292"/>
+                    <polyline points="300,265 310,275 305,290 315,300"/>
+                    <polyline points="250,90 258,100 252,112"/>
+                </g>
+
+                <!-- chocolate chunks -->
+                <g stroke="#111111" stroke-width="3" stroke-linejoin="round">
+                    <polygon points="130,110 165,100 182,124 160,146 126,138" fill="#5A2615"/>
+                    <polygon points="215,190 255,175 276,206 260,236 224,228" fill="#5A2615"/>
+                    <polygon points="114,200 150,195 166,225 140,246 111,232" fill="#5A2615"/>
+                    <polygon points="180,265 216,257 229,285 205,306 177,295" fill="#5A2615"/>
+                    <polygon points="281,124 311,130 321,160 300,173" fill="#5A2615"/>
+                    <polygon points="261,276 286,271 296,296 275,311 259,300" fill="#5A2615"/>
+                    <polygon points="205,112 222,108 226,124 210,128" fill="#5A2615"/>
+                </g>
+
+                <!-- highlights -->
+                <g stroke="#FFF" stroke-width="3" stroke-linecap="round">
+                    <line x1="145" y1="130" x2="158" y2="110"/>
+                    <line x1="238" y1="215" x2="252" y2="190"/>
+                    <line x1="132" y1="232" x2="130" y2="208"/>
+                    <line x1="195" y1="290" x2="208" y2="270"/>
+                    <line x1="300" y1="158" x2="305" y2="140"/>
+                </g>
+
+                <!-- crumb specks -->
+                <g fill="#7A3A1C">
+                    <circle cx="190" cy="165" r="4"/>
+                    <circle cx="112" cy="175" r="3"/>
+                    <circle cx="245" cy="140" r="3"/>
+                    <circle cx="170" cy="230" r="3"/>
+                    <circle cx="320" cy="215" r="4"/>
+                    <circle cx="150" cy="300" r="4"/>
+                    <circle cx="240" cy="320" r="3"/>
+                    <circle cx="95" cy="200" r="3"/>
+                    <circle cx="300" cy="240" r="3"/>
+                </g>
+
+                <!-- fallen crumbs -->
+                <g fill="#F2A24C" stroke="#111111" stroke-width="2.5" stroke-linejoin="round">
+                    <polygon points="88,345 100,342 104,354 92,358"/>
+                    <polygon points="112,368 121,366 123,376 114,378"/>
+                    <polygon points="330,362 340,360 342,368 332,370"/>
+                </g>
+            </svg>
+        </header>
+
+        <!-- Recipe Meta Information -->
+        <section class="recipe-meta">
+            <div class="meta-item">
+                <strong>Prep Time:</strong> 15 minutes
+            </div>
+            <div class="meta-item">
+                <strong>Cook Time:</strong> 12 minutes
+            </div>
+            <div class="meta-item">
+                <strong>Total Time:</strong> 27 minutes
+            </div>
+            <div class="meta-item">
+                <strong>Servings:</strong> 24 cookies
+            </div>
+            <div class="meta-item">
+                <strong>Difficulty:</strong> Easy
+            </div>
+        </section>
+
+        <!-- Recipe Description -->
+        <section class="recipe-description">
+            <p>These classic chocolate chip cookies are crispy on the edges, chewy in the middle, and packed with chocolate chips. Perfect for any occasion, from lunch boxes to holiday gatherings. This foolproof recipe has been tested countless times and always delivers delicious results.</p>
+        </section>
+
+        <!-- Ingredients Section -->
+        <section class="ingredients-section">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list">
+                <li>2¼ cups all-purpose flour</li>
+                <li>1 teaspoon baking soda</li>
+                <li>1 teaspoon salt</li>
+                <li>1 cup (2 sticks) butter, softened</li>
+                <li>¾ cup granulated sugar</li>
+                <li>¾ cup packed brown sugar</li>
+                <li>2 large eggs</li>
+                <li>2 teaspoons vanilla extract</li>
+                <li>2 cups chocolate chips</li>
+                <li>1 cup chopped walnuts (optional)</li>
+            </ul>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="instructions-section">
+            <h2>Instructions</h2>
+            <ol class="instructions-list">
+                <li class="instruction-step">
+                    <strong>Preheat oven</strong> to 375°F (190°C). Line baking sheets with parchment paper.
+                </li>
+                <li class="instruction-step">
+                    <strong>Mix dry ingredients:</strong> In a medium bowl, whisk together flour, baking soda, and salt. Set aside.
+                </li>
+                <li class="instruction-step">
+                    <strong>Cream butter and sugars:</strong> In a large bowl, beat softened butter with both sugars until light and fluffy, about 2-3 minutes.
+                </li>
+                <li class="instruction-step">
+                    <strong>Add eggs and vanilla:</strong> Beat in eggs one at a time, then stir in vanilla extract.
+                </li>
+                <li class="instruction-step">
+                    <strong>Combine wet and dry:</strong> Gradually blend in the flour mixture until just combined. Don't overmix.
+                </li>
+                <li class="instruction-step">
+                    <strong>Fold in chocolate chips:</strong> Stir in chocolate chips and nuts (if using).
+                </li>
+                <li class="instruction-step">
+                    <strong>Shape and bake:</strong> Drop rounded tablespoons of dough onto prepared baking sheets, spacing 2 inches apart. Bake 9-11 minutes until golden brown.
+                </li>
+                <li class="instruction-step">
+                    <strong>Cool:</strong> Let cool on baking sheet for 2 minutes, then transfer to wire rack.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Recipe Footer -->
+        <footer class="recipe-footer">
+            <p>Recipe adapted from traditional family cookbook | Nutritional info: ~150 calories per cookie</p>
+            <p>Tags: dessert, baking, cookies, chocolate, family-friendly</p>
+            <p>Style Reference: diner-kitsch, <a href="https://cari.institute/aesthetics/diner-kitsch">cari.institute</a></p>
+            <p>Tatsuro Yamashita - "For You" Album Art (1982), Design by <a href="http://eizin.net/">Eizin Suzuki</a></p>
+        </footer>
+    </div>
+</body>
+</html>
