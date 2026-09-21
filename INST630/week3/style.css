@@ -241,7 +241,8 @@ h1, h2 {
     margin: 0.2rem 0;
 }
 
-.recipe-footer p:nth-of-type(3) {
+.recipe-footer p:nth-of-type(3),
+.recipe-footer p:nth-of-type(5) {
     margin-top: 1.25rem;
 }
 
