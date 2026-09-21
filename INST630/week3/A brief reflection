@@ -1,0 +1,30 @@
+# A brief reflection
+
+## 1. What was your main design strategy for organizing the information?
+
+As we were looking at the New York Times in class, I just found out that students get a free NYT subscription. I looked at NYT Cooking’s recipe layout, which puts the ingredients and preparation side by side in two columns, each with a thick border line. I borrowed this two-column layout.
+
+I also think that with a list of 10 ingredients, it’s easy to lose track of which line I’m on, so I alternated the text color between white and yellow, which will hopefully make it easier to follow.
+
+For the heading font, I looked for one with a similar vibe to the reference image.
+
+
+## 2. How did you prioritize different pieces of content?
+
+The HTML structure was already given, which by itself helped a lot in deciding what is h1, h2, and p.
+
+In recipe-meta, the three time items and the other two items are semantically about different things, so I thought it would be better to separate them a little. I added extra margin between these two groups.
+
+
+## 3. What challenges did you encounter with responsive layout?
+
+When the browser is wide enough for all 5 items to fit on a single row, I wanted them to stretch across the whole row, with the first 3 clustered on the left and the last 2 on the right. The gaps between items 1-2, 2-3, and 4-5 should be the same, and the gap between 3-4 a bit larger, so they are intentionally not spread evenly. I then learned that I could just add an extra margin-left to the 4th box.
+
+
+## 4. What trade-offs did your aesthetic require?
+
+Looking at the blue background on screen for a long time is really straining on the eyes.
+
+Also, the colors in my design don’t always carry much meaning, so other than trying to match the reference image, maybe not that many things need to be so colorful. That said, when I checked it with a color blindness checker, it wasn’t too bad.
+
+## AI acknowledgement: I looked for images online but couldn’t find one that I really liked. I used Claude to generate the SVG code for the chocolate chip cookie illustration.
