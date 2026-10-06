@@ -9,3 +9,5 @@ https://ximengdeng.github.io/INST630/week2/tutorial_2.html
 https://ximengdeng.github.io/INST630/week3/index.html
 
 https://ximengdeng.github.io/INST630/week4/index.html
+
+https://ximengdeng.github.io/INST630/week5/index.html
