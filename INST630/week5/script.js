@@ -124,8 +124,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Hint: Use restaurantList.innerHTML += to add each one
 
     // YOUR CODE HERE:
+
     restaurants.forEach((resto) => {
-      restaurantList.innerHTML += `<div>${resto.name} (${resto.cuisine})</div>`;
+      restaurantList.innerHTML += `
+      <div class="restaurant-item">
+        <span class="restaurant-name">${resto.name}</span>
+        <span class="restaurant-cuisine">(${resto.cuisine})</span>
+      </div>
+      `;
     });
 
     console.log("Displayed all restaurants using forEach");
@@ -156,7 +162,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     filteredList.innerHTML = "";
     cheapRestaurants.forEach((restaurant) => {
-      filteredList.innerHTML += `<div>${restaurant.priceRange} -- ${restaurant.name}</div>`;
+      filteredList.innerHTML += `<div class="restaurant-item">
+      <span class="restaurant-price">${restaurant.priceRange}</span>
+      <span class="restaurant-name">${restaurant.name}</span>
+      </div>`;
     });
 
     console.log("Showed cheap restaurants using filter");
@@ -185,7 +194,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return restaurant.name;
     });
     mappedList.innerHTML = `<ul class="name-list">${names
-      .map((name) => `<li>${name}</li>`)
+      .map((name) => `<li class="restaurant-name">${name}</li>`)
       .join("")}</ul>`;
 
     console.log("Showed restaurant names using map");
