@@ -128,8 +128,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     restaurants.forEach((resto) => {
       restaurantList.innerHTML += `
       <div class="restaurant-item">
-        <span class="restaurant-name">${resto.name}</span>
-        <span class="restaurant-cuisine">(${resto.cuisine})</span>
+        <div class="restaurant-name">${resto.name}</div>
+        <div class="restaurant-cuisine">${resto.cuisine} cuisine</div>
+        <div class="restaurant-rating">Rating: ${resto.rating}★</div>
+        <div class="restaurant-price">${resto.priceRange}</div>
+    </div>
       </div>
       `;
     });
@@ -162,9 +165,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     filteredList.innerHTML = "";
     cheapRestaurants.forEach((restaurant) => {
-      filteredList.innerHTML += `<div class="restaurant-item">
-      <span class="restaurant-price">${restaurant.priceRange}</span>
-      <span class="restaurant-name">${restaurant.name}</span>
+      filteredList.innerHTML += `
+      <div class="restaurant-item">
+      <div class="restaurant-name">${restaurant.name}</div>
+      <div class="restaurant-cuisine">${restaurant.cuisine} cuisine</div>
+      <div class="restaurant-rating">Rating: ${restaurant.rating}★</div>
+      <div class="restaurant-price">${restaurant.priceRange}</div>
       </div>`;
     });
 
@@ -194,7 +200,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return restaurant.name;
     });
     mappedList.innerHTML = `<ul class="name-list">${names
-      .map((name) => `<li class="restaurant-name">${name}</li>`)
+      .map((name) => `<li>${name}</li>`)
       .join("")}</ul>`;
 
     console.log("Showed restaurant names using map");
@@ -228,7 +234,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
       foundItem.innerHTML = `
         <div class="found-restaurant">
         <div class="restaurant-name">${bestRestaurant.name}</div>
-        <div>Cuisine: ${bestRestaurant.cuisine}, Rating: ${bestRestaurant.rating}</div>
+    <div>Cuisine: ${bestRestaurant.cuisine}</div>
+    <div>Rating: ${bestRestaurant.rating}★</div>
+    <div>Price: ${bestRestaurant.priceRange}</div>
+    <div>Location: ${bestRestaurant.neighborhood}</div>
         </div>`;
     } else {
       foundItem.innerHTML = '<p class="placeholder">not found</p>';
