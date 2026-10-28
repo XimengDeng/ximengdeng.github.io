@@ -1,0 +1,198 @@
+/* ============================================================
+   CV — HTML/CSS version (print to PDF from the browser)
+   ============================================================ */
+
+:root {
+  --accent: rgb(40, 60, 110);
+  --text: #111;
+  --muted: #444;
+}
+
+/* ---------- Page ---------- */
+@page {
+  size: letter;
+  margin: 1in;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: "Charter", "Bitstream Charter", "Georgia", serif;
+  font-size: 10pt;
+  line-height: 1.35;
+}
+
+.cv {
+  max-width: calc(6.5in + 32px);   /* letter text width (8.5in − 2×1in) + 16px gutters */
+  margin: 0.6in auto;
+  padding: 0 16px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ---------- Header ---------- */
+header {
+  text-align: center;
+  margin-bottom: 0.4em;
+}
+header h1 {
+  font-size: 20pt;
+  margin: 0 0 0.3em;
+}
+header p { margin: 0.15em 0; }
+.sep { margin: 0 0.6em; }
+
+/* ---------- Section headings: small caps + rule ---------- */
+h2 {
+  font-size: 13pt;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  border-bottom: 0.6pt solid var(--accent);
+  margin: 1.2em 0 0.6em;
+  padding-bottom: 0.1em;
+}
+
+/* ---------- Entries ----------
+   .entry       event-style: title / date, then venue / location, then link
+   .entry.org   organization-style: organization / location, then role / date,
+                then a small note (advisor, supervisor, thesis …)            */
+.entry {
+  margin-bottom: 0.7em;
+  break-inside: avoid;
+}
+
+/* one line: text on the left, date or location pinned right */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.title {
+  font-weight: bold;
+  flex: 0 1 83%;             /* title wraps within ~83% of the line */
+}
+.date,
+.loc {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.venue { font-size: 9pt; }
+.loc { font-style: italic; }
+.org .loc { font-style: normal; }
+
+.now { font-weight: normal; }    /* "(now …)" after an old unit name */
+
+.note {
+  font-size: 9pt;
+  color: var(--muted);
+  margin-top: 0.1em;
+}
+
+.url {
+  display: inline-block;
+  font-family: "Menlo", "Courier New", monospace;
+  font-size: 8.5pt;
+  word-break: break-all;
+}
+
+/* ---------- Simple one-line lists (awards, peer review, memberships) ---------- */
+.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.plain li { margin-bottom: 0.3em; }
+
+.keywords { margin: 0; }
+
+/* ---------- Publications: newest first, type tag in front ---------- */
+.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pubs li {
+  margin-bottom: 0.7em;
+  padding-left: 1.5em;       /* hanging indent for wrapped lines */
+  text-indent: -1.5em;
+  break-inside: avoid;
+}
+.pubs .url { text-indent: 0; }   /* inline-block would inherit the -1.5em */
+
+.tag {
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  margin-right: 0.4em;
+}
+.tag::after { content: " ·"; }
+
+.extra {                     /* extra link line under a citation, e.g. Poster: … */
+  display: block;
+  text-indent: 0;
+  font-size: 9pt;
+}
+
+/* ---------- BibTeX (click to expand, hidden when printed) ---------- */
+.bib {
+  text-indent: 0;
+  margin-top: 0.2em;
+}
+.bib summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 8.5pt;
+  color: var(--accent);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+.bib pre {
+  margin: 0.3em 0 0;
+  padding: 0.6em 0.8em;
+  background: #f4f5f8;
+  border-left: 2px solid var(--accent);
+  font-size: 8pt;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.bib .copy {
+  float: right;
+  margin: 0.4em 0.4em 0 0;
+  font-size: 8pt;
+  font-family: inherit;
+  color: var(--accent);
+  background: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  padding: 0.1em 0.5em;
+  cursor: pointer;
+}
+
+/* ---------- Phone: stack date/location under the title ---------- */
+@media (max-width: 500px) {
+  .cv { margin: 24px auto; }
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .title { flex-basis: auto; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .bib { display: none; }
+  .cv { margin: 0; padding: 0; max-width: none; }
+  a:hover { text-decoration: none; }
+}
