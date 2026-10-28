@@ -15,3 +15,8 @@ https://ximengdeng.github.io/INST630/week5/index.html
 https://ximengdeng.github.io/INST630/week6
 
 https://ximengdeng.github.io/INST630/week7
+
+
+##
+
+https://ximengdeng.github.io/cv
